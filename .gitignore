@@ -1,0 +1,22 @@
+# Visual Studio
+bin/
+obj/
+*.user
+*.suo
+*.vs/
+.vs/
+Debug/
+Release/
+x64/
+x86/
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+
+# NuGet
+packages/
+
+# OS
+.DS_Store
+Thumbs.db
