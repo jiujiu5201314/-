@@ -2,25 +2,20 @@
 
 ## Session: 2026-05-30
 
-### 基于真实调研重写计划
+### 阶段零·D1：Git安装 + 初始化 ✅
 - **Status:** complete
 - Actions taken:
-  - 读取两份调研文档（成都/深圳JD + C#上位机学习指南）
-  - 对比原计划，发现8处缺口
-  - 重写task_plan.md：加入Dapper/EF Core、S7.Net、CommunityToolkit.Mvvm、Git、报警/权限/日志/Excel
-  - 新增阶段零（环境与工具链）
-  - 阶段从WinForm单一框架改为WinForm+WPF并行
-- Files created/modified:
-  - .planning/task_plan.md（全新，基于真实数据）
-  - .planning/findings.md（全新，含调研结论+缺口分析）
-  - .planning/progress.md（本文件）
-  - 旧文件已全部删除
+  - Git 2.54 安装确认
+  - Git 配置 user.name/email
+  - 项目 git init + .gitignore
+  - 首次 commit: 17 files, 1078 insertions
+  - GitHub 远程仓库创建
+  - 首次 push 成功
+- Repo: https://github.com/jiujiu5201314/-
 
-### 阶段零·D4-5：WinForm动态控件复习
-- **Status:** complete
-- Actions taken:
-  - Button/TextBox/ListBox/ComboBox/Label/Panel/GroupBox 动态创建
-  - 事件绑定 + sender转型 + 控件交互
+### 阶段零·下一步：D2 VS2022双环境配置
+- 配置 .NET Framework 4.7.2 + .NET 8 双运行时
+- 了解多目标框架的概念
 
 ---
 
@@ -32,13 +27,14 @@
 | 5/29 | SelectedIndex代替事件 | 1 | 改事件名 |
 | 5/30 | Panel/GroupBox未Add | 1 | 加this.Controls.Add |
 | 5/30 | GroupBox尺寸太小 | 2 | 调整宽高 |
+| 5/30 | Shell无外网，gh装不上 | 2 | 用户本地PowerShell直推成功 |
 
 ## 5-Question Reboot Check
 
 | Question | Answer |
 |----------|--------|
-| Where am I? | 阶段零·D1：Git安装 + 环境配置 |
-| Where am I going? | D2 VS2022双环境 → D3 NuGet → D6-7周末项目 |
+| Where am I? | 阶段零·D2：VS2022双环境配置 |
+| Where am I going? | D3 NuGet → D6-7 周末项目 → 阶段一多线程 |
 | What's the goal? | 2027年3月入职成都上位机 |
-| What have I learned? | 调研数据：Dapper/EF Core/S7.Net是原计划缺的 |
-| What have I done? | 基于真实JD调研重写了全部计划 |
+| What have I learned? | 调研数据：Dapper/EF Core/S7.Net 是原计划短板 |
+| What have I done? | Git初始化+GitHub推送完成 |

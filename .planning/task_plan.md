@@ -26,7 +26,7 @@
 
 | 天 | 内容 | 状态 |
 |:--:|------|:--:|
-| 1 | Git安装 + GitHub账号 + 项目初始化 | ⬜ |
+| 1 | Git安装 + GitHub账号 + 项目初始化 | ✅ |
 | 2 | VS2022配置（.NET Framework 4.7.2 + .NET 8双环境） | ⬜ |
 | 3 | NuGet基础使用 | ⬜ |
 | 4-5 | WinForm动态控件复习（Button/TextBox/ListBox/ComboBox/Label/Panel/GroupBox） | ✅ 已完成 |
