@@ -24,21 +24,17 @@ namespace WindowsFormsApp1
             group.Location = new Point(370, 10);
             group.Size = new Size(220, 120);
 
-
-
             Button btn = new Button();
             btn.Text = "添加";
             btn.Location = new Point(20, 55);
             btn.Size = new Size(80, 30);
             btn.Click += Btn_Click;
             panel.Controls.Add(btn);
-
             
             tbx.Location = new Point(20, 20);
             tbx.Size = new Size(200, 25);
             tbx.Click += tbx_Click;
             panel.Controls.Add(tbx);
-
             
             lbx.Location = new Point(20, 95);
             lbx.Size = new Size(200, 200);
@@ -61,6 +57,9 @@ namespace WindowsFormsApp1
             this.Controls.Add(panel);
             this.Controls.Add(group);
 
+            var config = new { 设备名 = "PLC1", IP = "192.168.1.1", 端口 = 582};
+            string json = Newtonsoft.Json.JsonConvert.SerializeObject(config);
+            MessageBox.Show(json);
         }
 
         private void Btn_Click(object sender,EventArgs e)

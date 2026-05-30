@@ -1,42 +1,61 @@
 # 研究发现
 
-> 数据来源：2025-2026年成都/深圳两地公开JD调研 + C#上位机核心技术栈学习指南
+> 数据来源：2025-2026年成都/深圳JD调研 + 四家AI（ChatGPT/Gemini/豆包v2）交叉验证
 
 ---
 
-## 一、调研核心结论（5/30）
+## 一、四家AI交叉验证结论（5/30）
 
-### 技术栈一致性
-两地C#上位机岗位基础技术栈匹配度**90%以上**，成都偏标准工业自动化，深圳偏机器人/医疗高端制造。
+### 四家共识（无需再争论）
 
-### JD vs 原计划缺口
+| 共识 | 结论 |
+|------|------|
+| 通信 > 界面，WPF 是碗不是饭 | ✅ 采纳：WPF砍纯UI，只学到够用 |
+| 西门子S7是PLC首选 | ✅ 采纳：只学S7.Net，不碰三菱/欧姆龙 |
+| 原生SQL先于ORM | ✅ 采纳：Dapper是配菜 |
+| WinForm + WPF 双修 | ✅ 采纳：WinForm先当通信调试壳 |
+| 多线程是入场券 | ✅ 采纳：阶段一核心 |
+| 别四种PLC一起学 | ✅ 采纳：只西门子 |
+| 别疯狂学框架（Prism/IOC/DDD） | ✅ 采纳：Prism仅半天概念 |
 
-| 调研要求 | 原计划 | 缺口 | 修正 |
-|----------|:--:|:--:|------|
-| Dapper/EF Core | 无（只有原生SQL） | 🔴 严重 | 阶段二加入 |
-| S7 PLC实操 | 仅有概念认知 | 🟡 中等 | 阶段三加S7.Net实操 |
-| WinForm+WPF双框架 | 学完WinForm后切WPF | 🟡 中等 | 两者并行 |
-| MySQL | 无 | 🟡 中等 | 阶段二末补概念 |
-| CommunityToolkit.Mvvm | 基础MVVM | 🟢 轻微 | 阶段四升级 |
-| 报警/权限/日志/Excel | 无 | 🟡 中等 | 穿线项目加入 |
-| Git版本控制 | 无 | 🟡 中等 | 从零阶段开始 |
-| OPC UA/EtherCAT/运动控制 | 无 | 🟢 仅了解 | 阶段三末补概念 |
+### 四家分歧
+
+| 争议点 | ChatGPT | Gemini | 豆包v2 | 裁决 |
+|--------|:--:|:--:|:--:|------|
+| SQLite vs SQL Server | 提了 | 狂推SQLite | 狂推SQLite | ❌ SQLite（JD数据不支持） |
+| 买实体PLC | 没提 | 强烈要求 | 有条件建议 | ⏸ 模拟器先行，后期可买 |
+| 数据库位置 | 放最后 | — | SQL放通信前 | ✅ SQL在通信前（读数据就要存） |
+| WinForms | 跳过 | 强调 | 强调 | ✅ 保留WinForms |
+
+### 新增采纳项
+
+| 新增 | 来源 |
+|------|------|
+| SunnyUI/HZHControls 工业控件库 | 豆包v2 |
+| Wireshark 抓包分析 | 豆包v2 + Gemini |
+| 三种跨线程方案对比（Invoke/SyncContext/async-await） | 豆包v2 |
+| 面试题库按类别重构 | 豆包v2 + ChatGPT |
+| 安装包制作（Advanced Installer） | 豆包v2 |
+| 批量写入 Bulk Insert | ChatGPT |
+| 数据库表设计（DeviceLog/AlarmHistory/Recipe/ProductionRecord） | ChatGPT + 学习指南 |
 
 ---
 
-## 二、学习指南核心要点
+## 二、JD 高频词统计（6条真实JD + 调研报告）
 
-### 推荐学习路线（指南原文）
-```
-第一阶段：C# → 多线程 → SQL
-第二阶段：WPF → MVVM → Dapper
-第三阶段：TCP/IP → Socket → Modbus TCP
-第四阶段：PLC通信 → OPC UA
-第五阶段：运动控制 → 机器视觉 → MES对接
-```
-
-### 推荐项目功能
-设备监控系统必须包含：WPF+MVVM / SQL Server / Modbus TCP / PLC通信 / 实时曲线 / 报警管理 / 用户权限 / 日志系统 / Excel导出
+| 关键词 | 出现次数 | 覆盖 |
+|--------|:--:|:--:|
+| C# | 6/6 | ✅ |
+| WPF | 5/6 | ✅ |
+| SQL Server | 4/6 | ✅ |
+| 串口通信 | 4/6 | ✅ |
+| Modbus | 3/6 | ✅ |
+| .NET | 5/6 | ✅ |
+| PLC | 3/6 | ✅ |
+| MVVM | 3/6 | ✅ |
+| 多线程 | 3/6 | ✅ |
+| Git | 2/6 | ✅ |
+| SQLite | 0/6 | ❌ 不学 |
 
 ---
 
@@ -44,25 +63,13 @@
 
 | 工具 | 状态 | 用途 |
 |------|:--:|------|
-| VS2022 | ✅ | 开发环境 |
-| Git | ⬜ | 版本控制 |
+| VS2022 | ✅ | 开发 |
+| Git | ✅ | 版本控制 |
+| GitHub | ✅ | 代码托管 |
 | Modbus Slave | ✅ | 模拟PLC |
 | VSPD | ✅ COM1↔COM2 | 虚拟串口 |
 | NetAssist | ⬜ | 网络调试 |
+| Wireshark | ⬜ | 抓包分析 |
 | SQL Server Express | ⬜ | 数据库 |
 | SSMS | ⬜ | 数据库管理 |
-| S7-PLCSIM | ⬜ | 西门子PLC模拟器 |
-
----
-
-## 四、技术原理记录
-
-### WinForm动态控件创建（5/29）
-- new → 设属性 → Controls.Add
-- 类级别变量才能在事件方法中访问
-- sender必须转型
-
-### Panel/GroupBox容器（5/30）
-- 容器内控件坐标是相对容器左上角
-- GroupBox标题占用顶部空间
-- 容器尺寸 = 控件宽度 + 边距
+| PLCSIM Advanced | ⬜ | 西门子PLC模拟 |
