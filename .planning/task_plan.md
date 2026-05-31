@@ -44,10 +44,10 @@
 
 | 天 | 内容 | 状态 |
 |:--:|------|:--:|
-| W1D1 | 委托 delegate、Action、Func | ⬜ |
-| W1D2 | 事件 event、EventHandler | ⬜ |
-| W1D3 | Lambda表达式、匿名方法 | ⬜ |
-| W1D4 | LINQ：Where/Select/OrderBy/GroupBy | ⬜ |
+| W1D1 | 委托 delegate、Action、Func | ✅ |
+| W1D2 | 事件 event、EventHandler | ✅ |
+| W1D3 | Lambda表达式 | ✅ |
+| W1D4 | LINQ：Where/Select/OrderBy/GroupBy | ✅ |
 | W1D5 | LINQ实战：List筛选排序练习 | ⬜ |
 | W1D6-7 | 周末：用LINQ做数据筛选小工具 | ⬜ |
 | W2D1 | 文件读写：File.ReadAllText/WriteAllText | ⬜ |

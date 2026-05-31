@@ -1,6 +1,9 @@
 using System;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Drawing.Text;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace WindowsFormsApp1
 {
@@ -30,12 +33,12 @@ namespace WindowsFormsApp1
             btn.Size = new Size(80, 30);
             btn.Click += Btn_Click;
             panel.Controls.Add(btn);
-            
+
             tbx.Location = new Point(20, 20);
             tbx.Size = new Size(200, 25);
             tbx.Click += tbx_Click;
             panel.Controls.Add(tbx);
-            
+
             lbx.Location = new Point(20, 95);
             lbx.Size = new Size(200, 200);
             panel.Controls.Add(lbx);
@@ -57,26 +60,58 @@ namespace WindowsFormsApp1
             this.Controls.Add(panel);
             this.Controls.Add(group);
 
-            var config = new { 设备名 = "PLC1", IP = "192.168.1.1", 端口 = 582};
+            var config = new { 设备名 = "PLC1", IP = "192.168.1.1", 端口 = 582 };
             string json = Newtonsoft.Json.JsonConvert.SerializeObject(config);
             MessageBox.Show(json);
+
+            Func<string, string> f = SayHello;
+            string result = f("张三");
+            MessageBox.Show(result);
+
+            Action<string> a = PrintMsg;
+            a("委托学完了");
+
+            Publisher pub = new Publisher();
+            pub.OnSomething += (msg) => { MessageBox.Show(msg); };
+            pub.DoSomething();
+
+            List<int> number = new List<int> { 5, 12, 3, 8, 21, 7, 15 };
+            var w = number.Where(n => n > 10);
+            var s = number.Select(n => n * 20);
+            var o = number.OrderBy(n => n);
+            var g = number.GroupBy(n => n % 2 == 0 ? "偶数" : "奇数");
+
+            MessageBox.Show(
+                ">10: " + string.Join(", ", w) + "\n" +
+                "×2: " + string.Join(", ", s) + "\n" +
+                "排序: " + string.Join(", ", o)
+);
         }
 
-        private void Btn_Click(object sender,EventArgs e)
+        private void Btn_Click(object sender, EventArgs e)
         {
             lbx.Items.Add(tbx.Text);
             tbx.Clear();
         }
 
-        private void tbx_Click(object sender,EventArgs e)
+        private void tbx_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void Cmb_Changed(object sender,EventArgs e)
+        private void Cmb_Changed(object sender, EventArgs e)
         {
             ComboBox combo = sender as ComboBox;
             lbl.Text = "你选中:" + cmb.Text;
         }
+        private string SayHello(string name)
+        {
+            return "你好," + name;
+        }
+        private void PrintMsg(string msg)
+        {
+            MessageBox.Show(msg);
+        }
+
     }
 }

@@ -37,6 +37,11 @@ C#、WinForm、WPF、MVVM(CommunityToolkit)、SQL Server、MySQL(概念)、Dappe
 
 ## 学习节奏规则
 
+### 阶段完成提醒
+- 每个小知识点完成 → 不需要提醒
+- 每个阶段（4-9周的大阶段）完成 → 主动提醒用户推送到GitHub
+- 提醒话术："本阶段完成，需要推送到GitHub吗？"用户确认后执行commit+提醒push.bat
+
 ### 自动推进
 - 按天规划，每天一个明确知识点/任务
 - 完成当天任务后自动引导到下一天
