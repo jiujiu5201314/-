@@ -48,7 +48,7 @@
 | W1D2 | 事件 event、EventHandler | ✅ |
 | W1D3 | Lambda表达式 | ✅ |
 | W1D4 | LINQ：Where/Select/OrderBy/GroupBy | ✅ |
-| W1D5 | LINQ实战：List筛选排序练习 | ⬜ |
+| W1D5 | LINQ实战：链式调用+设备数据筛选 | ✅ |
 | W1D6-7 | 周末：用LINQ做数据筛选小工具 | ⬜ |
 | W2D1 | 文件读写：File.ReadAllText/WriteAllText | ⬜ |
 | W2D2 | StreamReader/StreamWriter 逐行读写 | ⬜ |
@@ -312,3 +312,4 @@
 | 5/30 | 三种跨线程方案对比 | 豆包v2：Invoke/SyncContext/async-await |
 | 5/30 | 面试题库按类别重构 | 豆包v2+ChatGPT共识 |
 | 5/30 | 只用西门子S7，不做三菱/欧姆龙 | ChatGPT共识：初学者不要贪多 |
+
