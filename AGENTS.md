@@ -10,10 +10,16 @@ C#上位机学习项目，用户0基础 + 自动化售后调试背景，目标20
 
 详见 `.planning/task_plan.md`，五阶段：
 0. 环境与工具链（1周）✅ 已完成
-1. C#进阶+多线程+文件IO（4周）
+1. C#进阶+多线程+文件IO（4周）🔄 进行中
 2. SQL Server+Dapper+EF Core（5周）
 3. 工业通信（TCP/SerialPort/Modbus/S7/OPC UA）（8周）
 4. WPF+MVVM+项目实战（8周）
+
+## 时间分配
+
+- 在职学习，每晚 2 ~ 2.5 小时
+- 每周 5+2 模式：5 天学知识做练习 + 2 天综合项目实战
+- 每两周必须产出可运行的阶段性成果
 
 ## 技术栈
 
@@ -28,6 +34,26 @@ C#、WinForm、WPF、MVVM(CommunityToolkit)、SQL Server、MySQL(概念)、Dappe
 - 禁止WinForm原生控件自定义样式——用SunnyUI
 - 计划基于真实数据，禁止臆测
 
+## ⚠️ 教学方式（铁律，不可违反）
+
+用户已经掌握的知识点，**只给场景+数据+方法名+提示**，绝不给完整代码行：
+
+```
+正确示范：
+  场景：6台PLC温度数据
+  数据：(粘贴数据)
+  方法：Where、OrderByDescending、Select
+  提示：
+    - Where 条件你写过 n => n > 10，换变量和数字
+    - OrderByDescending 跟 OrderBy 只差一个单词
+    - Select 取 d.Name 字段
+
+错误示范：
+  devices.Where(d => d.Temp > 40).OrderByDescending(...)  ← 禁止直接给代码
+```
+
+**唯一例外**：新概念第一次出现时（如 delegate、LINQ、Socket），给完整示例 + 逐行拆解。
+
 ## GitHub 推送
 
 当用户说"推送到GitHub"、"push"、"上传到GitHub"、"同步到GitHub"时：
@@ -37,10 +63,10 @@ C#、WinForm、WPF、MVVM(CommunityToolkit)、SQL Server、MySQL(概念)、Dappe
 
 ## 学习节奏规则
 
-### 阶段完成提醒
+### 项目/阶段完成提醒
 - 每个小知识点完成 → 不需要提醒
-- 每个阶段（4-9周的大阶段）完成 → 主动提醒用户推送到GitHub
-- 提醒话术："本阶段完成，需要推送到GitHub吗？"用户确认后执行commit+提醒push.bat
+- 每个项目做完（周末项目、阶段综合项目）→ 主动提醒："项目已完成，推送到GitHub？"
+- 提醒时自动执行 git add -A + git commit，然后提醒用户运行 push.bat 或 git push
 
 ### 自动推进
 - 按天规划，每天一个明确知识点/任务
@@ -48,6 +74,7 @@ C#、WinForm、WPF、MVVM(CommunityToolkit)、SQL Server、MySQL(概念)、Dappe
 
 ### 不自动跳过
 - 当天知识点没学完 → 不跳到下一天
+- 同一知识点不反复纠缠，掌握即进下一步
 - 小阶段结束主动询问掌握情况
 - 用户说"还没好" → 不推进
 
@@ -58,7 +85,7 @@ C#、WinForm、WPF、MVVM(CommunityToolkit)、SQL Server、MySQL(概念)、Dappe
 
 ### 遇到问题
 1. 独立思考改代码
-2. GitHub搜索
+2. GitHub搜索：https://github.com/dashboard
 3. Microsoft官方文档
 4. 再问我
 
@@ -72,8 +99,8 @@ C#、WinForm、WPF、MVVM(CommunityToolkit)、SQL Server、MySQL(概念)、Dappe
 
 ## 当前进度
 
-阶段一·W1D1：委托 delegate（下次开课）
+阶段一·W1D5：LINQ 实战
 
-- [x] 阶段零全部完成 ✅
-- [x] TODO列表周末项目 push到GitHub ✅
-- [ ] 下次：委托 delegate、Action、Func
+- [x] W1D1-D4：委托/事件/Lambda/LINQ 全部完成 ✅
+- [ ] W1D5：LINQ链式调用——设备数据筛选排序
+- [ ] W1D6-7：周末项目

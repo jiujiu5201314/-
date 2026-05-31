@@ -84,8 +84,23 @@ namespace WindowsFormsApp1
             MessageBox.Show(
                 ">10: " + string.Join(", ", w) + "\n" +
                 "×2: " + string.Join(", ", s) + "\n" +
-                "排序: " + string.Join(", ", o)
-);
+                "排序: " + string.Join(", ", o));
+
+            var devices = new List<(string Name, int Temp)>
+            {
+                ("PLC1", 45),
+                ("PLC2", 38),
+                ("PLC3", 52),
+                ("PLC4", 41),
+                ("PLC5", 49),
+                ("PLC6", 36)
+            };
+            var r1 = devices
+                .Where(d => d.Temp > 40)
+                .OrderByDescending(d => d.Temp)
+                .Select(d => d.Name);
+            MessageBox.Show("温度>40的设备：\n\n"+string.Join(",", r1));
+                
         }
 
         private void Btn_Click(object sender, EventArgs e)
