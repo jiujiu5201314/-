@@ -1,4 +1,4 @@
-# 上位机开发学习计划（基于成都/深圳真实JD调研 + 四家AI共识提取）
+﻿# 上位机开发学习计划（基于成都/深圳真实JD调研 + 四家AI共识提取）
 
 > 数据来源：2025-2026年猎聘/智联/BOSS直聘/前程无忧公开岗位调研报告 + ChatGPT/Gemini/豆包交叉验证
 > 目标：2027年3月入职成都上位机开发
@@ -32,7 +32,7 @@
 | 2 | VS2022配置（.NET Framework 4.7.2 + .NET 8双环境） | ✅ |
 | 3 | NuGet基础使用 | ✅ |
 | 4-5 | WinForm动态控件复习（Button/TextBox/ListBox/ComboBox/Label/Panel/GroupBox） | ✅ |
-| 6-7 | 周末：TODO列表小工具 push到GitHub | 🔄 |
+| 6-7 | 周末：TODO列表小工具 push到GitHub | ✅ |
 
 ---
 
@@ -49,7 +49,7 @@
 | W1D3 | Lambda表达式 | ✅ |
 | W1D4 | LINQ：Where/Select/OrderBy/GroupBy | ✅ |
 | W1D5 | LINQ实战：链式调用+设备数据筛选 | ✅ |
-| W1D6-7 | 周末：用LINQ做数据筛选小工具 | ⬜ |
+| W1D6-7 | 周末：用LINQ做数据筛选小工具 | ✅ |
 | W2D1 | 文件读写：File.ReadAllText/WriteAllText | ⬜ |
 | W2D2 | StreamReader/StreamWriter 逐行读写 | ⬜ |
 | W2D3 | JSON序列化/反序列化（Newtonsoft.Json） | ⬜ |

@@ -13,6 +13,20 @@ namespace WindowsFormsApp1
         ListBox lbx = new ListBox();
         ComboBox cmb = new ComboBox();
         Label lbl = new Label();
+
+        List<(string Name, int Temp)> devices = new List<(string Name, int Temp)>
+            {
+                ("PLC1", 45),
+                ("PLC2", 38),
+                ("PLC3", 52),
+                ("PLC4", 41),
+                ("PLC5", 49),
+                ("PLC6", 36)
+            };
+
+        ComboBox cmbFilter = new ComboBox();
+        ListBox lbxResult = new ListBox();
+
         public Form1()
         {
             InitializeComponent();
@@ -23,12 +37,12 @@ namespace WindowsFormsApp1
             panel.BackColor = Color.LightGray;
 
             GroupBox group = new GroupBox();
-            group.Text = "…Ë±∏—°‘Ò";
+            group.Text = "ËÆæÂ§áÈÄâÊã©";
             group.Location = new Point(370, 10);
             group.Size = new Size(220, 120);
 
             Button btn = new Button();
-            btn.Text = "ÃÌº”";
+            btn.Text = "Á°ÆÂÆö";
             btn.Location = new Point(20, 55);
             btn.Size = new Size(80, 30);
             btn.Click += Btn_Click;
@@ -45,31 +59,40 @@ namespace WindowsFormsApp1
 
             cmb.Location = new Point(10, 30);
             cmb.Size = new Size(140, 25);
-            cmb.Items.Add("…Ë±∏1");
-            cmb.Items.Add("…Ë±∏2");
-            cmb.Items.Add("…Ë±∏3");
+            cmb.Items.Add("ËÆæÂ§á1");
+            cmb.Items.Add("ËÆæÂ§á2");
+            cmb.Items.Add("ËÆæÂ§á3");
             cmb.SelectedIndex = 0;
             cmb.SelectedIndexChanged += Cmb_Changed;
             group.Controls.Add(cmb);
 
             lbl.Location = new Point(10, 65);
-            lbl.Text = "ƒ„—°÷–¡À£∫…Ë±∏1";
+            lbl.Text = "ÂΩìÂâçÈÄâÊã©ÔºöËÆæÂ§á1";
             lbl.AutoSize = true;
             group.Controls.Add(lbl);
 
             this.Controls.Add(panel);
             this.Controls.Add(group);
 
-            var config = new { …Ë±∏√˚ = "PLC1", IP = "192.168.1.1", ∂Àø⁄ = 582 };
-            string json = Newtonsoft.Json.JsonConvert.SerializeObject(config);
-            MessageBox.Show(json);
+            cmbFilter.Location = new Point(10, 320);
+            cmbFilter.Size = new Size(180, 25);
+            cmbFilter.Items.Add("ÂÖ®ÈÉ®");
+            cmbFilter.Items.Add("È´òÊ∏©Ôºà>40‚ÑÉÔºâ");
+            cmbFilter.Items.Add("‰ΩéÊ∏©Ôºà<=40‚ÑÉÔºâ");
+            cmbFilter.SelectedIndex = 0;
+            cmbFilter.SelectedIndexChanged += CmbFilter_Changed;
+            this.Controls.Add(cmbFilter);
+
+            lbxResult.Location = new Point(200, 320);
+            lbxResult.Size = new Size(300, 200);
+            this.Controls.Add(lbxResult);
 
             Func<string, string> f = SayHello;
-            string result = f("’≈»˝");
+            string result = f("Âº†‰∏â");
             MessageBox.Show(result);
 
             Action<string> a = PrintMsg;
-            a("ŒØÕ–—ßÕÍ¡À");
+            a("ÂßîÊâòÂ≠¶ÂÆå‰∫Ü");
 
             Publisher pub = new Publisher();
             pub.OnSomething += (msg) => { MessageBox.Show(msg); };
@@ -79,28 +102,18 @@ namespace WindowsFormsApp1
             var w = number.Where(n => n > 10);
             var s = number.Select(n => n * 20);
             var o = number.OrderBy(n => n);
-            var g = number.GroupBy(n => n % 2 == 0 ? "≈º ˝" : "∆Ê ˝");
+            var g = number.GroupBy(n => n % 2 == 0 ? "ÂÅ∂Êï∞" : "Â•áÊï∞");
 
             MessageBox.Show(
                 ">10: " + string.Join(", ", w) + "\n" +
-                "°¡2: " + string.Join(", ", s) + "\n" +
-                "≈≈–Ú: " + string.Join(", ", o));
+                "‰πò2: " + string.Join(", ", s) + "\n" +
+                "ÊéíÂ∫è: " + string.Join(", ", o));
 
-            var devices = new List<(string Name, int Temp)>
-            {
-                ("PLC1", 45),
-                ("PLC2", 38),
-                ("PLC3", 52),
-                ("PLC4", 41),
-                ("PLC5", 49),
-                ("PLC6", 36)
-            };
             var r1 = devices
                 .Where(d => d.Temp > 40)
                 .OrderByDescending(d => d.Temp)
                 .Select(d => d.Name);
-            MessageBox.Show("Œ¬∂»>40µƒ…Ë±∏£∫\n\n"+string.Join(",", r1));
-                
+            MessageBox.Show("Ê∏©Â∫¶>40ÁöÑËÆæÂ§áÔºö\n\n" + string.Join(",", r1));
         }
 
         private void Btn_Click(object sender, EventArgs e)
@@ -117,16 +130,45 @@ namespace WindowsFormsApp1
         private void Cmb_Changed(object sender, EventArgs e)
         {
             ComboBox combo = sender as ComboBox;
-            lbl.Text = "ƒ„—°÷–:" + cmb.Text;
+            lbl.Text = "ÂΩìÂâçÈÄâÊã©:" + cmb.Text;
         }
+
         private string SayHello(string name)
         {
-            return "ƒ„∫√," + name;
+            return "‰Ω†Â•Ω," + name;
         }
+
         private void PrintMsg(string msg)
         {
             MessageBox.Show(msg);
         }
 
+        private void CmbFilter_Changed(object sender, EventArgs e)
+        {
+            lbxResult.Items.Clear();
+            if (cmbFilter.SelectedIndex == 0)
+            {
+                foreach (var d in devices)
+                {
+                    lbxResult.Items.Add($"{d.Name} - {d.Temp}‚ÑÉ");
+                }
+            }
+            else if (cmbFilter.SelectedIndex == 1)
+            {
+                foreach (var d in devices)
+                {
+                    if (d.Temp > 40)
+                        lbxResult.Items.Add($"{d.Name} - {d.Temp}‚ÑÉ");
+                }
+            }
+            else
+            {
+                foreach (var d in devices)
+                {
+                    if (d.Temp <= 40)
+                        lbxResult.Items.Add($"{d.Name} - {d.Temp}‚ÑÉ");
+                }
+            }
+        }
     }
 }
