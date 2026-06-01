@@ -83,3 +83,13 @@
 |-----------|-------|---------|------------|
 | 6/2 | btnSave无Location/Size，按钮0×0不可见 | 2 | 补Location+Size |
 | 6/2 | 加载按钮无反应 | 3 | VS未重新编译，重新生成解决 |
+---
+
+## Session: 2026-06-02（续）
+
+### 阶段一·W2D2 ✅ 完成 — StreamReader/StreamWriter
+
+- btnSave：StreamWriter + WriteLine 逐行写入
+- btnLoad：StreamReader + ReadLine + while 逐行读取
+- using 自动关闭资源
+- 路径统一为 `E:\data.txt`
