@@ -118,7 +118,7 @@ namespace WindowsFormsApp1
 
             Button btnSave = new Button();
             btnSave.Text = "保存";
-            btnSave.Location = new Point(110,55);
+            btnSave.Location = new Point(110, 55);
             btnSave.Size = new Size(80, 30);
             panel.Controls.Add(btnSave);
             btnSave.Click += btnSave_Click;
@@ -129,8 +129,9 @@ namespace WindowsFormsApp1
             btnLoad.Size = new Size(80, 30);
             btnLoad.Click += btnLoad_Click;
             panel.Controls.Add(btnLoad);
-            
+
         }
+
 
         private void Btn_Click(object sender, EventArgs e)
         {
@@ -138,10 +139,12 @@ namespace WindowsFormsApp1
             tbx.Clear();
         }
 
+
         private void tbx_Click(object sender, EventArgs e)
         {
 
         }
+
 
         private void Cmb_Changed(object sender, EventArgs e)
         {
@@ -149,15 +152,18 @@ namespace WindowsFormsApp1
             lbl.Text = "当前选择:" + cmb.Text;
         }
 
+
         private string SayHello(string name)
         {
             return "你好," + name;
         }
 
+
         private void PrintMsg(string msg)
         {
             MessageBox.Show(msg);
         }
+
 
         private void CmbFilter_Changed(object sender, EventArgs e)
         {
@@ -186,29 +192,33 @@ namespace WindowsFormsApp1
                 }
             }
         }
+
+
         private void btnSave_Click(object sender, EventArgs e)
         {
-            List<string> list = new List<string>();
-            foreach (var Items in lbx.Items)
-            {
-                list.Add(Items.ToString());
-            }
-            string all = string.Join("\n", list.ToArray());
+            
 
-            File.WriteAllText(@"E:\VS\WindowsFormsApp1\data.txt", all);
+            using (StreamWriter sw = new StreamWriter(@"E:\data.txt")) 
+            {
+                foreach (var Items in lbx.Items)
+                {
+                    sw.WriteLine(Items.ToString());
+                }
+            }
             MessageBox.Show("保存成功");
         }
-        private void btnLoad_Click(object sender,EventArgs e)
+
+
+        private void btnLoad_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("加载按钮被点了！");
-            string content = File.ReadAllText(@"E:\VS\WindowsFormsApp1\data.txt");
+            
 
-            string[] lines = content.Split(new char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
-
-            lbx.Items.Clear();
-            foreach (var Line in lines)
+            using (StreamReader sr = new StreamReader(@"E:\data.txt"))
             {
-            lbx.Items.Add(Line);
+                lbx.Items.Clear();
+                string line;
+                while ((line = sr.ReadLine()) != null)
+                    lbx.Items.Add(line);
             }
         }
     }
