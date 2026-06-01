@@ -5,6 +5,7 @@ using System.Drawing.Text;
 using System.Collections.Generic;
 using System.Linq;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace WindowsFormsApp1
 {
@@ -54,8 +55,8 @@ namespace WindowsFormsApp1
             tbx.Click += tbx_Click;
             panel.Controls.Add(tbx);
 
-            lbx.Location = new Point(20, 95);
-            lbx.Size = new Size(200, 200);
+            lbx.Location = new Point(20, 130);
+            lbx.Size = new Size(200, 160);
             panel.Controls.Add(lbx);
 
             cmb.Location = new Point(10, 30);
@@ -130,6 +131,20 @@ namespace WindowsFormsApp1
             btnLoad.Click += btnLoad_Click;
             panel.Controls.Add(btnLoad);
 
+            Button btnSaveJson = new Button();
+            btnSaveJson.Text = "JSON保存";
+            btnSaveJson.Location = new Point(110, 90);
+            btnSaveJson.Size = new Size(80, 30);
+            btnSaveJson.Click += btnSaveJson_Click;
+            panel.Controls.Add(btnSaveJson);
+
+            Button btnLoadJson = new Button();
+            btnLoadJson.Text = "JSON加载";
+            btnLoadJson.Location = new Point(200, 90);
+            btnLoadJson.Size = new Size(80, 30);
+            btnLoadJson.Click += btnSaveJson_Click;
+            panel.Controls.Add(btnLoadJson);
+
         }
 
 
@@ -196,9 +211,9 @@ namespace WindowsFormsApp1
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            
 
-            using (StreamWriter sw = new StreamWriter(@"E:\data.txt")) 
+
+            using (StreamWriter sw = new StreamWriter(@"E:\data.txt"))
             {
                 foreach (var Items in lbx.Items)
                 {
@@ -211,7 +226,7 @@ namespace WindowsFormsApp1
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            
+
 
             using (StreamReader sr = new StreamReader(@"E:\data.txt"))
             {
@@ -219,6 +234,32 @@ namespace WindowsFormsApp1
                 string line;
                 while ((line = sr.ReadLine()) != null)
                     lbx.Items.Add(line);
+            }
+        }
+
+        private void btnSaveJson_Click(object sender, EventArgs e)
+        {
+            List<string> list = new List<string>();
+            foreach (var item in lbx.Items)
+            {
+                list.Add(item.ToString());
+            }
+
+            string json = JsonConvert.SerializeObject(list);
+
+            File.WriteAllText(@"E:\VS\WindowsFormsApp1\data.json", json);
+            MessageBox.Show("JSON保存成功");
+        }
+
+        private void btnLoadJson_Click(object sender, EventArgs e)
+        {
+            string json = File.ReadAllText(@"E:\VS\WindowsFormsApp1\data.json");
+            dynamic obj = JsonConvert.DeserializeObject<dynamic>(json);
+
+            lbx.Items.Clear();
+            foreach (var item in obj)
+            {
+                lbx.Items.Add(item.ToString());
             }
         }
     }

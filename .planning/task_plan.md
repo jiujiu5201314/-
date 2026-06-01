@@ -52,7 +52,7 @@
 | W1D6-7 | 周末：用LINQ做数据筛选小工具 | ✅ |
 | W2D1 | 文件读写：File.ReadAllText/WriteAllText | ✅ |
 | W2D2 | StreamReader/StreamWriter 逐行读写 | ✅ |
-| W2D3 | JSON序列化/反序列化（Newtonsoft.Json） | ⬜ |
+| W2D3 | JSON序列化/反序列化（Newtonsoft.Json） | ✅ |
 | W2D4 | XML读写 | ⬜ |
 | W2D5 | 配置面板保存/加载JSON | ⬜ |
 | W2D6-7 | 周末：可保存配置的参数面板 | ⬜ |

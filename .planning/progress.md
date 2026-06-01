@@ -93,3 +93,14 @@
 - btnLoad：StreamReader + ReadLine + while 逐行读取
 - using 自动关闭资源
 - 路径统一为 `E:\data.txt`
+---
+
+## Session: 2026-06-02（续2）
+
+### 阶段一·W2D3 ✅ 完成 — JSON序列化
+
+- `JsonConvert.SerializeObject(对象)` — 装箱：C#对象→JSON字符串
+- `JsonConvert.DeserializeObject<dynamic>(字符串)` — 拆箱：JSON字符串→C#对象
+- `dynamic` 关键字理解
+- JSON版保存/加载按钮（data.json）
+- lbx位置调整解决按钮重叠
