@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Drawing.Text;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 
 namespace WindowsFormsApp1
 {
@@ -114,6 +115,21 @@ namespace WindowsFormsApp1
                 .OrderByDescending(d => d.Temp)
                 .Select(d => d.Name);
             MessageBox.Show("温度>40的设备：\n\n" + string.Join(",", r1));
+
+            Button btnSave = new Button();
+            btnSave.Text = "保存";
+            btnSave.Location = new Point(110,55);
+            btnSave.Size = new Size(80, 30);
+            panel.Controls.Add(btnSave);
+            btnSave.Click += btnSave_Click;
+
+            Button btnLoad = new Button();
+            btnLoad.Text = "加载";
+            btnLoad.Location = new Point(200, 55);
+            btnLoad.Size = new Size(80, 30);
+            btnLoad.Click += btnLoad_Click;
+            panel.Controls.Add(btnLoad);
+            
         }
 
         private void Btn_Click(object sender, EventArgs e)
@@ -168,6 +184,31 @@ namespace WindowsFormsApp1
                     if (d.Temp <= 40)
                         lbxResult.Items.Add($"{d.Name} - {d.Temp}℃");
                 }
+            }
+        }
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            List<string> list = new List<string>();
+            foreach (var Items in lbx.Items)
+            {
+                list.Add(Items.ToString());
+            }
+            string all = string.Join("\n", list.ToArray());
+
+            File.WriteAllText(@"E:\VS\WindowsFormsApp1\data.txt", all);
+            MessageBox.Show("保存成功");
+        }
+        private void btnLoad_Click(object sender,EventArgs e)
+        {
+            MessageBox.Show("加载按钮被点了！");
+            string content = File.ReadAllText(@"E:\VS\WindowsFormsApp1\data.txt");
+
+            string[] lines = content.Split(new char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+
+            lbx.Items.Clear();
+            foreach (var Line in lines)
+            {
+            lbx.Items.Add(Line);
             }
         }
     }

@@ -50,7 +50,7 @@
 | W1D4 | LINQ：Where/Select/OrderBy/GroupBy | ✅ |
 | W1D5 | LINQ实战：链式调用+设备数据筛选 | ✅ |
 | W1D6-7 | 周末：用LINQ做数据筛选小工具 | ✅ |
-| W2D1 | 文件读写：File.ReadAllText/WriteAllText | ⬜ |
+| W2D1 | 文件读写：File.ReadAllText/WriteAllText | ✅ |
 | W2D2 | StreamReader/StreamWriter 逐行读写 | ⬜ |
 | W2D3 | JSON序列化/反序列化（Newtonsoft.Json） | ⬜ |
 | W2D4 | XML读写 | ⬜ |

@@ -67,3 +67,19 @@
 | What's the goal? | 2027年3月入职成都上位机 |
 | What have I learned? | delegate→event→Lambda→LINQ→数据筛选项目 |
 | What have I done? | 阶段零+阶段一W1全部完成 |
+---
+
+## Session: 2026-06-02
+
+### 阶段一·W2D1 ✅ 完成 — 文件读写
+
+- File.WriteAllText / File.ReadAllText
+- Split + StringSplitOptions.RemoveEmptyEntries
+- VS旧版本缓存导致"加载"不触发 → 重新生成解决
+
+### Error Log
+
+| Timestamp | Error | Attempt | Resolution |
+|-----------|-------|---------|------------|
+| 6/2 | btnSave无Location/Size，按钮0×0不可见 | 2 | 补Location+Size |
+| 6/2 | 加载按钮无反应 | 3 | VS未重新编译，重新生成解决 |
