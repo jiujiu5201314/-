@@ -1,0 +1,18 @@
+# ????
+bin/
+obj/
+
+# VS ??
+.vs/
+*.suo
+*.user
+*.vsidx
+*.dtbcache.json
+*.cache
+
+# ????
+*.bat
+
+# OS ??
+Thumbs.db
+Desktop.ini
