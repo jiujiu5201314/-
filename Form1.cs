@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.IO;
 using Newtonsoft.Json;
+using System.Xml;
 
 namespace WindowsFormsApp1
 {
@@ -55,8 +56,8 @@ namespace WindowsFormsApp1
             tbx.Click += tbx_Click;
             panel.Controls.Add(tbx);
 
-            lbx.Location = new Point(20, 130);
-            lbx.Size = new Size(200, 160);
+            lbx.Location = new Point(20, 160);
+            lbx.Size = new Size(200, 130);
             panel.Controls.Add(lbx);
 
             cmb.Location = new Point(10, 30);
@@ -142,9 +143,23 @@ namespace WindowsFormsApp1
             btnLoadJson.Text = "JSON加载";
             btnLoadJson.Location = new Point(200, 90);
             btnLoadJson.Size = new Size(80, 30);
-            btnLoadJson.Click += btnSaveJson_Click;
+            btnLoadJson.Click += btnLoadJson_Click;
             panel.Controls.Add(btnLoadJson);
 
+            // ===== XML 按钮 =====
+            Button btnSaveXml = new Button();
+            btnSaveXml.Text = "XML保存";
+            btnSaveXml.Location = new Point(110, 125);
+            btnSaveXml.Size = new Size(80, 30);
+            btnSaveXml.Click += btnSaveXml_Click;
+            panel.Controls.Add(btnSaveXml);
+
+            Button btnLoadXml = new Button();
+            btnLoadXml.Text = "XML加载";
+            btnLoadXml.Location = new Point(200, 125);
+            btnLoadXml.Size = new Size(80, 30);
+            btnLoadXml.Click += btnLoadXml_Click;
+            panel.Controls.Add(btnLoadXml);
         }
 
 
@@ -211,8 +226,6 @@ namespace WindowsFormsApp1
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-
-
             using (StreamWriter sw = new StreamWriter(@"E:\data.txt"))
             {
                 foreach (var Items in lbx.Items)
@@ -226,8 +239,6 @@ namespace WindowsFormsApp1
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-
-
             using (StreamReader sr = new StreamReader(@"E:\data.txt"))
             {
                 lbx.Items.Clear();
@@ -260,6 +271,47 @@ namespace WindowsFormsApp1
             foreach (var item in obj)
             {
                 lbx.Items.Add(item.ToString());
+            }
+        }
+
+        // ===== XML 保存 =====
+        private void btnSaveXml_Click(object sender, EventArgs e)
+        {
+            // ① 建空 XML 文档
+            XmlDocument doc = new XmlDocument();
+
+            // ② 创建根节点 <items>（好比画一个大框）
+            XmlElement root = doc.CreateElement("items");
+            doc.AppendChild(root);
+
+            // ③ 遍历 lbx，每个条目创建一个 <item> 标签
+            foreach (var item in lbx.Items)
+            {
+                XmlElement xmlItem = doc.CreateElement("item");  // 做一个小标签
+                xmlItem.InnerText = item.ToString();              // 把内容塞进去
+                root.AppendChild(xmlItem);                        // 挂到根节点下
+            }
+
+            // ④ 保存到文件
+            doc.Save(@"E:\VS\WindowsFormsApp1\data.xml");
+            MessageBox.Show("XML保存成功");
+        }
+
+        // ===== XML 加载 =====
+        private void btnLoadXml_Click(object sender, EventArgs e)
+        {
+            // ① 建空文档，从文件加载
+            XmlDocument doc = new XmlDocument();
+            doc.Load(@"E:\VS\WindowsFormsApp1\data.xml");
+
+            // ② 搜出所有 <item> 标签
+            XmlNodeList itemNodes = doc.GetElementsByTagName("item");
+
+            // ③ 清空 lbx，逐条填入
+            lbx.Items.Clear();
+            foreach (XmlNode node in itemNodes)
+            {
+                lbx.Items.Add(node.InnerText);   // InnerText 就是标签里的文字
             }
         }
     }

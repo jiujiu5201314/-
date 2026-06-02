@@ -104,3 +104,13 @@
 - `dynamic` 关键字理解
 - JSON版保存/加载按钮（data.json）
 - lbx位置调整解决按钮重叠
+---
+
+## Session: 2026-06-02（续3）
+
+### 阶段一·W2D4 ✅ 完成 — XML读写
+
+- XmlDocument/CreateElement/AppendChild/InnerText/Save（写入）
+- Load/GetElementsByTagName/InnerText（读取）
+- XML格式：`<items><item>数据</item></items>`
+- 修复btnLoadJson.Click错误绑定
