@@ -146,7 +146,6 @@ namespace WindowsFormsApp1
             btnLoadJson.Click += btnLoadJson_Click;
             panel.Controls.Add(btnLoadJson);
 
-            // ===== XML 按钮 =====
             Button btnSaveXml = new Button();
             btnSaveXml.Text = "XML保存";
             btnSaveXml.Location = new Point(110, 125);
@@ -160,6 +159,19 @@ namespace WindowsFormsApp1
             btnLoadXml.Size = new Size(80, 30);
             btnLoadXml.Click += btnLoadXml_Click;
             panel.Controls.Add(btnLoadXml);
+
+            // ===== W2D5：配置持久化 - 加载 =====
+            if (File.Exists(@"E:\VS\WindowsFormsApp1\config.json"))
+            {
+                string json = File.ReadAllText(@"E:\VS\WindowsFormsApp1\config.json");
+                AppConfig config = JsonConvert.DeserializeObject<AppConfig>(json);
+                tbx.Text = config.LastText;
+                cmb.SelectedIndex = config.SelectedDevice;
+                cmbFilter.SelectedIndex = cmbFilter.FindStringExact(config.FilterMode);
+            }
+
+            // 绑定窗口关闭事件：关了自动保存
+            this.FormClosing += Form1_FormClosing;
         }
 
 
@@ -255,9 +267,7 @@ namespace WindowsFormsApp1
             {
                 list.Add(item.ToString());
             }
-
             string json = JsonConvert.SerializeObject(list);
-
             File.WriteAllText(@"E:\VS\WindowsFormsApp1\data.json", json);
             MessageBox.Show("JSON保存成功");
         }
@@ -266,7 +276,6 @@ namespace WindowsFormsApp1
         {
             string json = File.ReadAllText(@"E:\VS\WindowsFormsApp1\data.json");
             dynamic obj = JsonConvert.DeserializeObject<dynamic>(json);
-
             lbx.Items.Clear();
             foreach (var item in obj)
             {
@@ -274,45 +283,51 @@ namespace WindowsFormsApp1
             }
         }
 
-        // ===== XML 保存 =====
         private void btnSaveXml_Click(object sender, EventArgs e)
         {
-            // ① 建空 XML 文档
             XmlDocument doc = new XmlDocument();
-
-            // ② 创建根节点 <items>（好比画一个大框）
             XmlElement root = doc.CreateElement("items");
             doc.AppendChild(root);
-
-            // ③ 遍历 lbx，每个条目创建一个 <item> 标签
             foreach (var item in lbx.Items)
             {
-                XmlElement xmlItem = doc.CreateElement("item");  // 做一个小标签
-                xmlItem.InnerText = item.ToString();              // 把内容塞进去
-                root.AppendChild(xmlItem);                        // 挂到根节点下
+                XmlElement xmlItem = doc.CreateElement("item");
+                xmlItem.InnerText = item.ToString();
+                root.AppendChild(xmlItem);
             }
-
-            // ④ 保存到文件
             doc.Save(@"E:\VS\WindowsFormsApp1\data.xml");
             MessageBox.Show("XML保存成功");
         }
 
-        // ===== XML 加载 =====
         private void btnLoadXml_Click(object sender, EventArgs e)
         {
-            // ① 建空文档，从文件加载
             XmlDocument doc = new XmlDocument();
             doc.Load(@"E:\VS\WindowsFormsApp1\data.xml");
-
-            // ② 搜出所有 <item> 标签
             XmlNodeList itemNodes = doc.GetElementsByTagName("item");
-
-            // ③ 清空 lbx，逐条填入
             lbx.Items.Clear();
             foreach (XmlNode node in itemNodes)
             {
-                lbx.Items.Add(node.InnerText);   // InnerText 就是标签里的文字
+                lbx.Items.Add(node.InnerText);
             }
         }
+
+        // ===== W2D5：配置持久化 - 保存（窗口关闭时自动触发） =====
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            AppConfig config = new AppConfig();
+            config.LastText = tbx.Text;
+            config.SelectedDevice = cmb.SelectedIndex;
+            config.FilterMode = cmbFilter.Text;
+
+            string json = JsonConvert.SerializeObject(config);
+            File.WriteAllText(@"E:\VS\WindowsFormsApp1\config.json", json);
+        }
+    }
+
+    // ===== W2D5：配置类 - 一个存数据的袋子 =====
+    public class AppConfig
+    {
+        public string LastText;       // 上次输入的文字
+        public int SelectedDevice;    // 上次选了第几个设备
+        public string FilterMode;     // 上次选的筛选模式
     }
 }

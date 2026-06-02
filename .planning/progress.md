@@ -114,3 +114,15 @@
 - Load/GetElementsByTagName/InnerText（读取）
 - XML格式：`<items><item>数据</item></items>`
 - 修复btnLoadJson.Click错误绑定
+---
+
+## Session: 2026-06-02（续4）
+
+### 阶段一·W2D5 ✅ 完成 — 配置面板保存/加载JSON
+
+- AppConfig 自定义数据类（袋子装状态）
+- FormClosing 事件（窗口关闭前自动保存）
+- File.Exists 保护（首次运行跳过加载）
+- 保存：FormClosing → 取值 → Serialize → WriteAllText
+- 加载：构造函数末尾 → File.Exists → ReadAllText → Deserialize → 还原控件
+- 排坑：tbx.Clear() 导致存空字符串，非代码bug，操作顺序问题
