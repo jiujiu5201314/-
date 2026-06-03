@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1
@@ -8,6 +9,15 @@ namespace WindowsFormsApp1
     {
         public Form1()
         {
+            try
+            {
+                string content = File.ReadAllText(@"F:\data.txt");
+                MessageBox.Show(content);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("文件读取失败sb");
+            }
             InitializeComponent();
             List<Device> lis = new List<Device>();
             lis.Add(new Device { Name = "PLC1", IP = "192.168.1.101", Temp = 45 });
@@ -49,6 +59,12 @@ namespace WindowsFormsApp1
             Device second = q.Dequeue();
             Device third = q.Dequeue();
             MessageBox.Show("First: " + first.Name + " " + first.Temp + "°C\nSecond: " + second.Name + " " + second.Temp + "°C\nThird: " + third.Name + " " + third.Temp + "°C");
+
+            using (StreamReader sr = new StreamReader(@"E:\VS\WindowsFormsApp1\config_log.txt"))
+            {
+                string line = sr.ReadLine();
+                MessageBox.Show("读到了" + line);
+            }
         }
     }
     class Device
@@ -57,5 +73,6 @@ namespace WindowsFormsApp1
         public string IP { get; set; }
         public int Temp { get; set; }
     }
+
 
 }
