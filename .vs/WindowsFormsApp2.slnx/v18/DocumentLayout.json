@@ -3,31 +3,27 @@
   "WorkspaceRootPath": "E:\\VS\\WindowsFormsApp2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{690D5C5F-D977-45FF-9D6A-74782DAE6D48}|WindowsFormsApp2.csproj|e:\\vs\\windowsformsapp2\\devicebookform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{690D5C5F-D977-45FF-9D6A-74782DAE6D48}|WindowsFormsApp2.csproj|solutionrelative:devicebookform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{690D5C5F-D977-45FF-9D6A-74782DAE6D48}|WindowsFormsApp2.csproj|E:\\VS\\WindowsFormsApp2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{690D5C5F-D977-45FF-9D6A-74782DAE6D48}|WindowsFormsApp2.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{690D5C5F-D977-45FF-9D6A-74782DAE6D48}|WindowsFormsApp2.csproj|E:\\VS\\WindowsFormsApp2\\devicebookform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{690D5C5F-D977-45FF-9D6A-74782DAE6D48}|WindowsFormsApp2.csproj|solutionrelative:devicebookform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{690D5C5F-D977-45FF-9D6A-74782DAE6D48}|WindowsFormsApp2.csproj|e:\\vs\\windowsformsapp2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{690D5C5F-D977-45FF-9D6A-74782DAE6D48}|WindowsFormsApp2.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{690D5C5F-D977-45FF-9D6A-74782DAE6D48}|WindowsFormsApp2.csproj|E:\\VS\\WindowsFormsApp2\\devicemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{690D5C5F-D977-45FF-9D6A-74782DAE6D48}|WindowsFormsApp2.csproj|solutionrelative:devicemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{690D5C5F-D977-45FF-9D6A-74782DAE6D48}|WindowsFormsApp2.csproj|E:\\VS\\WindowsFormsApp2\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{690D5C5F-D977-45FF-9D6A-74782DAE6D48}|WindowsFormsApp2.csproj|solutionrelative:form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
-      "VerticalTabListWidth": 200,
+      "VerticalTabListWidth": 125,
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -38,44 +34,49 @@
             },
             {
               "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DeviceBookForm.cs",
-              "DocumentMoniker": "E:\\VS\\WindowsFormsApp2\\DeviceBookForm.cs",
-              "RelativeDocumentMoniker": "DeviceBookForm.cs",
-              "ToolTip": "E:\\VS\\WindowsFormsApp2\\DeviceBookForm.cs",
-              "RelativeToolTip": "DeviceBookForm.cs",
-              "ViewState": "AgIAAJsAAAAAAAAAAAAYwHAAAAANAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs [\u8BBE\u8BA1]",
+              "DocumentMoniker": "E:\\VS\\WindowsFormsApp2\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "E:\\VS\\WindowsFormsApp2\\Form1.cs [\u8BBE\u8BA1]",
+              "RelativeToolTip": "Form1.cs [\u8BBE\u8BA1]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-04T13:23:48.778Z",
+              "WhenOpened": "2026-06-10T12:54:42.663Z",
+              "EditorCaption": " [\u8BBE\u8BA1]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "E:\\VS\\WindowsFormsApp2\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "E:\\VS\\WindowsFormsApp2\\Form1.cs",
+              "RelativeToolTip": "Form1.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAuwFcAAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-10T12:54:44.632Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "DeviceManager.cs",
-              "DocumentMoniker": "E:\\VS\\WindowsFormsApp2\\DeviceManager.cs",
-              "RelativeDocumentMoniker": "DeviceManager.cs",
-              "ToolTip": "E:\\VS\\WindowsFormsApp2\\DeviceManager.cs",
-              "RelativeToolTip": "DeviceManager.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAywB0AAAAlAAAAAAAAAA==",
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "E:\\VS\\WindowsFormsApp2\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "Form1.Designer.cs",
+              "ToolTip": "E:\\VS\\WindowsFormsApp2\\Form1.Designer.cs",
+              "RelativeToolTip": "Form1.Designer.cs",
+              "ViewState": "AgIAAKMAAAAAAAAAAAAIwLYAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-04T13:29:30.259Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DeviceBookForm.Designer.cs",
-              "DocumentMoniker": "E:\\VS\\WindowsFormsApp2\\DeviceBookForm.Designer.cs",
-              "RelativeDocumentMoniker": "DeviceBookForm.Designer.cs",
-              "ToolTip": "E:\\VS\\WindowsFormsApp2\\DeviceBookForm.Designer.cs",
-              "RelativeToolTip": "DeviceBookForm.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001384|",
-              "WhenOpened": "2026-06-04T13:23:48.782Z"
+              "WhenOpened": "2026-06-10T12:54:46.919Z",
+              "EditorCaption": ""
             }
           ]
         }
